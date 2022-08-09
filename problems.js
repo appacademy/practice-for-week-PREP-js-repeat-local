@@ -1,23 +1,33 @@
 function divideByThree(num) {
     /* Returns the passed in number argument divided by three. */
     // Your code here
+    return num / 3;
 };
 
 function averageOfTwo(num1, num2) {
     /* Returns the average of two numbers, num1 and num2. */
     // Your code here
+    return (num1 + num2) / 2;
 };
 
 function averageOfFour(num1, num2, num3, num4) {
     /* Takes in four numbers. The function should return the average of all of
     the numbers. */
     // Your code here
+    return (num1 + num2 + num3 + num4) / 4;
 };
 
 function doubler(nums) {
     /* Takes an array of numbers and returns a new array where every element of
     the original array is multiplied by 2. */
     // Your code here
+    let doubledNums = []
+
+    nums.forEach(element => {
+        doubledNums.push(element * 2)
+    });
+
+    return doubledNums;
 };
 
 function combineArrays(arr1, arr2) {
@@ -26,6 +36,9 @@ function combineArrays(arr1, arr2) {
     calling this method won't permanently change, also known as **mutate**,
     either array. */
     // Your code here
+
+    let combinedArrays = arr1.concat(arr2);
+    return combinedArrays;
 };
 
 function wordWithinArray(word, arr) {
@@ -33,6 +46,14 @@ function wordWithinArray(word, arr) {
     boolean that returns true if that string is located inside of the array, or
     false if it does not. Use `Array.indexOf`. */
     // Your code here
+
+    let index = arr.indexOf(word)
+
+    if (index == -1) {
+        return false;
+    } else {
+        return true;
+    }
 };
 
 function echo(str) {
@@ -41,34 +62,58 @@ function echo(str) {
     echo("hey"); // => returns "HEY ... hey ... hey"
     echo("JUMp"); // => returns "JUMP ... JUMp ... jump" */
     // Your code here
+
+    newString = str.toUpperCase() + " ... " + str + " ... " + str.toLowerCase()
+    return newString;
 };
 
 function fizzBuzz(max) {
     /* Takes a number, max and returns an array that contains every number from
     0 to max (not inclusive) that is divisible by either 3 or 5, **but not both**. */
     // Your code here
+    let fizzBuzzArray = [];
+
+    for (let index = 0; index < max; index++) {
+        if (index % 3 == 0 || index % 5 == 0) {
+                if (index % 3 == 0 && index % 5 == 0) {
+                    // pass
+                } else {
+                    fizzBuzzArray.push(index)
+                }
+        }
+    }
+
+    return fizzBuzzArray;
 };
 
 function hello(name) {
     /* Takes in a string name and returns a string saying "Hello, " to that name. */
     // Your code here
+    return "Hello, " + name
 };
 
 function goodbye(name) {
     /* Takes in a string name and returns a string saying "Bye, " to that name. */
     // Your code here
+    return "Bye, " + name
 };
 
 function isFive(num) {
     /* Takes in a number, num, and returns `true` if a number is equal to 5 and
     `false` if it is not. */
     // Your code here
+    if (num == 5) {
+        return true;
+    } else {
+        return false;
+    }
 };
 
 function isOdd(num) {
     /* Takes in a number and returns `true` if the number is odd and returns
     `false` otherwise. Try writing this with and without `if` statements */
     // Your code here
+    return (num % 2 == 0) ? false : true
 };
 
 function isSubString(searchString, subString) {
@@ -76,6 +121,13 @@ function isSubString(searchString, subString) {
     `true` if `subString` is a part of the`searchString`, regardless of upper
     or lower case, and `false` if otherwise. */
     // Your code here
+
+    if (searchString.toLowerCase().indexOf(subString) == -1) {
+        return false;
+    } else {
+        return true;
+    }
+    
 };
 
 function aCounter(word) {
@@ -97,6 +149,16 @@ function aCounter(word) {
     return count;
     */
     // Your code here
+    let count = 0;
+
+    let wordArray = word.split("");
+    wordArray.forEach(element => {
+        if (element === "a" || element === "A") {
+            count += 1;
+        }
+    });
+
+    return count;
 };
 
 module.exports = {
